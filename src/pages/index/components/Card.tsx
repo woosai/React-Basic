@@ -7,7 +7,7 @@ interface Props {
 
 function Card({ data }: Props) {
   const openDialog = () => {
-    console.log("함수 호출");
+    console.log(data.description);
   };
 
   return (
