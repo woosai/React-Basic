@@ -15,9 +15,17 @@ import styles from "./styles/index.module.scss";
 function Index() {
   const imagmeSelector = useRecoilValue(imageData);
   const [open, setOpen] = useState<boolean>(false); // 이미지 상세 다이얼로그 발생(관리) State
+  const [selectCard, setSelectCard] = useState<CardDTO>();
 
   const Card_List = imagmeSelector.data.results.map((card: CardDTO) => {
-    return <Card data={card} key={card.id} handleDialog={setOpen} />;
+    return (
+      <Card
+        data={card}
+        key={card.id}
+        handleDialog={setOpen}
+        handleSetCardData={setSelectCard}
+      />
+    );
   });
 
   return (
@@ -42,7 +50,7 @@ function Index() {
       </div>
       {/* 공통 푸터 UI 부분 */}
       <CommonFooter />
-      {open && <DetailDialog />}
+      {open && <DetailDialog data={selectCard} />}
     </div>
   );
 }
