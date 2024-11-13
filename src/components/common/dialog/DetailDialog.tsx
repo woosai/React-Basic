@@ -8,7 +8,7 @@ function DetailDialog() {
         <div className={styles.container__dialog__header}>
           <div className={styles.close}>
             <button className={styles.close__button}>
-              {"구글 아이콘 사용"}
+              {/* 구글 아이콘 사용 */}
             </button>
             <img
               src=""
