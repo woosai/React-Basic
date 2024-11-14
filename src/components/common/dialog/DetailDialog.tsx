@@ -25,10 +25,7 @@ function DetailDialog({ data }: Props) {
               alt="사진작가 프로필 사진"
               className={styles.close__authorImage}
             />
-            <span className={styles.close__authorName}>
-              {data.user.name}
-              ""
-            </span>
+            <span className={styles.close__authorName}>{data.user.name}</span>
           </div>
           <div className={styles.bookmark}>
             <button className={styles.bookmark__button}>
