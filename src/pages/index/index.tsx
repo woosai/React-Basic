@@ -1,32 +1,41 @@
-import { useRecoilValue } from "recoil";
-import { useState } from "react";
+import { useRecoilValueLoadable } from "recoil";
+import { useMemo, useState } from "react";
 import { imageData } from "@/store/selectors/imageSelectors";
 import CommonHeader from "@/components/common/header/CommonHeader";
 import CommonSearchBar from "@/components/common/searchBar/CommonSearchBar";
 import CommonNav from "@/components/common/navigation/CommonNav";
 import CommonFooter from "@/components/common/footer/CommonFooter";
-import Card from "./components/Card";
 import { CardDTO } from "./types/card";
+import Card from "./components/Card";
 import DetailDialog from "@/components/common/dialog/DetailDialog";
 
 // CSS
 import styles from "./styles/index.module.scss";
 
 function Index() {
-  const imagmeSelector = useRecoilValue(imageData);
+  const imageSelector = useRecoilValueLoadable(imageData);
   const [open, setOpen] = useState<boolean>(false); // 이미지 상세 다이얼로그 발생(관리) State
   const [selectCard, setSelectCard] = useState<CardDTO>();
 
-  const Card_List = imagmeSelector.data.results.map((card: CardDTO) => {
-    return (
-      <Card
-        data={card}
-        key={card.id}
-        handleDialog={setOpen}
-        handleSetCardData={setSelectCard}
-      />
-    );
-  });
+  const Card_List = useMemo(() => {
+    //console.log(imageSelector);
+    if (imageSelector.state == "hasValue") {
+      const result = imageSelector.contents.map((card: CardDTO) => {
+        return (
+          <Card
+            data={card}
+            key={card.id}
+            handleDialog={setOpen}
+            handleSetCardData={setSelectCard}
+          />
+        );
+      });
+
+      return result;
+    } else {
+      return <div>loading...</div>;
+    }
+  }, [imageSelector]);
 
   return (
     <div className={styles.page}>

@@ -21,9 +21,9 @@ export const imageData = selector({
         `${API_URL}?query=${searchValue}&client_id=${API_KEY}&page=${pageValue}&per_page=${PER_PAGE}`
       );
 
-      console.log(res);
+      //console.log(res);
 
-      return res;
+      return res.data.results;
     } catch (error) {
       console.log(error);
     }
