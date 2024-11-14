@@ -6,7 +6,12 @@ import MainPage from "@pages/index/index";
 function App() {
   return (
     <RecoilRoot>
-      <BrowserRouter>
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Routes>
           <Route index path="/" element={<MainPage />}></Route>
           <Route path="/:id" element={<MainPage />}></Route>
