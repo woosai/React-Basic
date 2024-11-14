@@ -3,15 +3,20 @@ import styles from "./DetailDialog.module.scss";
 
 interface Props {
   data: CardDTO;
+  handleDialog: (eventValue: boolean) => void;
 }
 
-function DetailDialog({ data }: Props) {
+function DetailDialog({ data, handleDialog }: Props) {
+  const closeDialog = () => {
+    handleDialog(false);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.container__dialog}>
         <div className={styles.container__dialog__header}>
           <div className={styles.close}>
-            <button className={styles.close__button}>
+            <button className={styles.close__button} onClick={closeDialog}>
               {/* 구글 아이콘 사용 */}
               <span
                 className="material-symbols-outlined"

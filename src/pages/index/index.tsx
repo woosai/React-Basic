@@ -50,7 +50,7 @@ function Index() {
       </div>
       {/* 공통 푸터 UI 부분 */}
       <CommonFooter />
-      {open && <DetailDialog data={selectCard} />}
+      {open && <DetailDialog data={selectCard} handleDialog={setOpen} />}
     </div>
   );
 }
