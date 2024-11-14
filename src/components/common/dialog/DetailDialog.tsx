@@ -81,7 +81,13 @@ function DetailDialog({ data, handleDialog }: Props) {
             </div>
           </div>
           <div className={styles.tagBox}>
-            <div className={styles.tagBox__tag}>태그 데이터</div>
+            {data.slug.split("-").map((tagSlug) => {
+              return (
+                <div className={styles.tagBox__tag} key={tagSlug}>
+                  {tagSlug}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
