@@ -81,13 +81,16 @@ function DetailDialog({ data, handleDialog }: Props) {
             </div>
           </div>
           <div className={styles.tagBox}>
-            {data.slug.split("-").map((tagSlug) => {
-              return (
-                <div className={styles.tagBox__tag} key={tagSlug}>
-                  {tagSlug}
-                </div>
-              );
-            })}
+            {data.slug
+              .split("-")
+              .splice(0, 3) //3개까지 자른다는 거임
+              .map((tagSlug) => {
+                return (
+                  <div className={styles.tagBox__tag} key={tagSlug}>
+                    {tagSlug}
+                  </div>
+                );
+              })}
           </div>
         </div>
       </div>
