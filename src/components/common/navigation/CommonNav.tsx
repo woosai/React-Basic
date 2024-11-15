@@ -24,7 +24,7 @@ function CommonNav() {
     // console.log(location.pathname);
     navigation.forEach((nav: Navigation) => {
       nav.isActive = false;
-
+      //console.log("location = " + { location });
       if (
         nav.path == location.pathname ||
         location.pathname.includes(nav.path)

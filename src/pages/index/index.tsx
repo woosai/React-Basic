@@ -19,19 +19,24 @@ function Index() {
 
   const Card_List = useMemo(() => {
     //console.log(imageSelector);
+    //console.log('뭔가 바뀌었나??')
     if (imageSelector.state == "hasValue") {
-      const result = imageSelector.contents.map((card: CardDTO) => {
-        return (
-          <Card
-            data={card}
-            key={card.id}
-            handleDialog={setOpen}
-            handleSetCardData={setSelectCard}
-          />
-        );
-      });
+      if (imageSelector.contents.length != 0) {
+        const result = imageSelector.contents.map((card: CardDTO) => {
+          return (
+            <Card
+              data={card}
+              key={card.id}
+              handleDialog={setOpen}
+              handleSetCardData={setSelectCard}
+            />
+          );
+        });
 
-      return result;
+        return result;
+      } else {
+        return <div>No search result.</div>;
+      }
     } else {
       return <div>loading...</div>;
     }
