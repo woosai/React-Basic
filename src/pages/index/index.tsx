@@ -8,6 +8,7 @@ import CommonFooter from "@/components/common/footer/CommonFooter";
 import { CardDTO } from "./types/card";
 import Card from "./components/Card";
 import DetailDialog from "@/components/common/dialog/DetailDialog";
+import Loading from "./components/Loading";
 
 // CSS
 import styles from "./styles/index.module.scss";
@@ -38,7 +39,7 @@ function Index() {
         return <div>No search result.</div>;
       }
     } else {
-      return <div>loading...</div>;
+      return <Loading />;
     }
   }, [imageSelector]);
 
