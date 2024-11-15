@@ -1,13 +1,13 @@
+import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { pageState } from "@/store/atoms/pageState";
 import { searchState } from "@/store/atoms/searchState";
 
 import styles from "./CommonSearchBar.module.scss";
-import { useState } from "react";
 
 function CommonSearchBar() {
-  const [page, setPage] = useRecoilState(pageState);
   const [search, setSearch] = useRecoilState(searchState);
+  const [page, setPage] = useRecoilState(pageState);
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const onChangedInputText = (evnet) => {
@@ -22,6 +22,7 @@ function CommonSearchBar() {
     } else {
       setSearch(searchKeyword);
     }
+    setPage(1);
   };
 
   const activeenter = (event) => {

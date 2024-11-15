@@ -21,8 +21,8 @@ function Index() {
     //console.log(imageSelector);
     //console.log('뭔가 바뀌었나??')
     if (imageSelector.state == "hasValue") {
-      if (imageSelector.contents.length != 0) {
-        const result = imageSelector.contents.map((card: CardDTO) => {
+      if (imageSelector.contents.results.length != 0) {
+        const result = imageSelector.contents.results.map((card: CardDTO) => {
           return (
             <Card
               data={card}

@@ -23,7 +23,7 @@ export const imageData = selector({
 
       //console.log(res);
 
-      return res.data.results;
+      return res.data;
     } catch (error) {
       console.log(error);
     }
