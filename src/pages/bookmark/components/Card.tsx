@@ -23,10 +23,10 @@ function Card() {
           <span className={styles.label}>마지막 업데이트</span>
           <span className={styles.value}>값</span>
         </div>
-      </div>
-      <div className={styles.card__infoBox__row}>
-        <span className={styles.label}>다운로드 수</span>
-        <span className={styles.value}>값</span>
+        <div className={styles.card__infoBox__row}>
+          <span className={styles.label}>다운로드 수</span>
+          <span className={styles.value}>값</span>
+        </div>
       </div>
     </div>
   );

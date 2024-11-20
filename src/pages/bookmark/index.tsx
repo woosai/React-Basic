@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import styles from "./styles/index.module.scss";
 import CommonHeader from "@/components/common/header/CommonHeader";
 import Card from "./components/Card";
+
+// CSS
+import styles from "./styles/index.module.scss";
 
 function index() {
   const [data, setData] = useState([]);
